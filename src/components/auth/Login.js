@@ -7,7 +7,7 @@ class Login extends Component {
           <div>
             <form>
                 <div className="imgcontainer">
-                    <img scr="img_avatar2.png" alt="Avatar" className="Avater" />
+                   
                 </div>
                 <div className="container">
                     <label for="email">
