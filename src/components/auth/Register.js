@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 import "./style.css";
 
 class Register extends Component {
@@ -25,6 +27,25 @@ class Register extends Component {
   }
   onRegisterSubmit(e) {
     e.preventDefault();
+    const body = {
+      email: this.state.email,
+      password: this.state.password,
+      firstName: this.state.firstName,
+      LastName: this.state.LastName,
+      gender: this.state.gender,
+      department: this.state.department,
+      jobrole: this.state.jobrole,
+      avater_url: this.state.avater_url,
+      address: this.state.address
+    };
+    axios
+      .post("http://127.0.0.1:3000/api/article", {
+        body
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
   }
   render() {
     return (
@@ -149,4 +170,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
