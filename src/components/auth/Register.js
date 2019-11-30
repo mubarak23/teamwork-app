@@ -22,11 +22,17 @@ class Register extends Component {
   }
   onFildChange(e) {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   }
   onRegisterSubmit(e) {
     e.preventDefault();
+    const headers = new Headers({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
+      "Access-Control-Allow-Headers": "X-Requested-With,content-type",
+      "Access-Control-Allow-Credentials": true
+    });
     const body = {
       email: this.state.email,
       password: this.state.password,
@@ -40,7 +46,8 @@ class Register extends Component {
     };
     axios
       .post("http://127.0.0.1:3000/api/article", {
-        body
+        body,
+        headers
       })
       .then(response => {
         console.log(response);
@@ -56,7 +63,7 @@ class Register extends Component {
         </p>
         <form className="form" onSubmit={this.onRegisterSubmit}>
           <div>
-            <label for="email">Email Address</label>
+            <label htmlFor="email">Email Address</label>
             <input
               type="text"
               value={this.state.email}
@@ -68,7 +75,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="text"
               value={this.state.password}
@@ -80,7 +87,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="first Name">First Name</label>
+            <label htmlFor="first Name">First Name</label>
             <input
               type="text"
               value={this.state.firstName}
@@ -92,7 +99,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="LastName">Last Name</label>
+            <label htmlFor="LastName">Last Name</label>
             <input
               type="text"
               value={this.state.LastName}
@@ -104,7 +111,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="gender">Gender</label>
+            <label htmlFor="gender">Gender</label>
             <input
               type="text"
               value={this.state.gender}
@@ -115,7 +122,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="job Role">Job Role</label>
+            <label htmlFor="job Role">Job Role</label>
             <input
               type="text"
               value={this.state.jobrole}
@@ -126,7 +133,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="Department">Department</label>
+            <label htmlFor="Department">Department</label>
             <input
               type="text"
               value={this.state.department}
@@ -137,7 +144,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="Avater URL">Avater URL</label>
+            <label htmlFor="Avater URL">Avater URL</label>
             <input
               type="text"
               value={this.state.avater_url}
@@ -149,7 +156,7 @@ class Register extends Component {
             />
           </div>
           <div>
-            <label for="Address">Address</label>
+            <label htmlFor="Address">Address</label>
             <input
               type="text"
               value={this.state.address}
@@ -170,4 +177,4 @@ class Register extends Component {
   }
 }
 
-export default withRouter(Register);
+export default Register;
