@@ -9,13 +9,9 @@ class Register extends Component {
     this.state = {
       email: "",
       password: "",
-      firstName: "",
-      LastName: "",
-      jobrole: "",
-      gender: "",
-      department: "",
-      avater_url: "",
-      address: ""
+      password2: "",
+      name: "",
+      avater_url: ""
     };
     this.onFildChange = this.onFildChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -36,13 +32,8 @@ class Register extends Component {
     const body = {
       email: this.state.email,
       password: this.state.password,
-      firstName: this.state.firstName,
-      LastName: this.state.LastName,
-      gender: this.state.gender,
-      department: this.state.department,
-      jobrole: this.state.jobrole,
-      avater_url: this.state.avater_url,
-      address: this.state.address
+      name: this.state.name,
+      avater_url: this.state.avater_url
     };
     axios
       .post("http://127.0.0.1:3000/api/article", {
@@ -57,124 +48,55 @@ class Register extends Component {
   render() {
     return (
       <Fragment>
-        <h1 className="large text-primary">Signup</h1>
+        <h1 className="large text-primary">Sign Up</h1>
         <p className="lead">
-          <i className="fas fa-user">Create Your Account</i>
+          <i className="fas fa-user" /> Create Your Account
         </p>
         <form className="form" onSubmit={this.onRegisterSubmit}>
-          <div>
-            <label htmlFor="email">Email Address</label>
+          <div className="form-group">
             <input
               type="text"
-              value={this.state.email}
+              placeholder="Name"
+              name="name"
               onChange={this.onFildChange}
-              className="form-control"
-              name="email"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
               placeholder="Email Address"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="text"
-              value={this.state.password}
+              name="email"
               onChange={this.onFildChange}
-              className="form-control"
+            />
+            <small className="form-text">
+              This site uses Gravatar so if you want a profile image, use a
+              Gravatar email
+            </small>
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
               name="password"
-              placeholder="Enter Password"
-              required
+              onChange={this.onFildChange}
             />
           </div>
-          <div>
-            <label htmlFor="first Name">First Name</label>
+          <div className="form-group">
             <input
-              type="text"
-              value={this.state.firstName}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="firstName"
-              placeholder="Enter FirstName"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="LastName">Last Name</label>
-            <input
-              type="text"
-              value={this.state.LastName}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="LastName"
-              placeholder="Enter LastName"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="gender">Gender</label>
-            <input
-              type="text"
-              value={this.state.gender}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="gender"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="job Role">Job Role</label>
-            <input
-              type="text"
-              value={this.state.jobrole}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="jobrole"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="Department">Department</label>
-            <input
-              type="text"
-              value={this.state.department}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="department"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="Avater URL">Avater URL</label>
-            <input
-              type="text"
-              value={this.state.avater_url}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="avater_url"
-              placeholder="Avater URL"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="Address">Address</label>
-            <input
-              type="text"
-              value={this.state.address}
-              onChange={this.onFildChange}
-              className="form-control"
-              name="address"
-              placeholder="Home Address"
-              required
+              type="password"
+              placeholder="Confirm Password"
+              name="password2"
+              onChange={this.onFildChange()}
             />
           </div>
           <input type="submit" className="btn btn-primary" value="Register" />
         </form>
-        <p className="">
-          Already Have An Account? <a href="#login">Login</a>
+        <p className="my-1">
+          Already have an account? <a href="/login">Sign In</a>
         </p>
       </Fragment>
     );
   }
 }
 
-export default Register;
+export default withRouter(Register);
