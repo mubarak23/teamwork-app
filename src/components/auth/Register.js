@@ -9,9 +9,12 @@ class Register extends Component {
     this.state = {
       email: "",
       password: "",
-      password2: "",
-      name: "",
-      avater_url: ""
+      firstName: "",
+      LastName: "",
+      address: "",
+      gender: "",
+      department: "",
+      jobrole: ""
     };
     this.onFildChange = this.onFildChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -23,22 +26,21 @@ class Register extends Component {
   }
   onRegisterSubmit(e) {
     e.preventDefault();
-    const headers = new Headers({
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-      "Access-Control-Allow-Headers": "X-Requested-With,content-type",
-      "Access-Control-Allow-Credentials": true
-    });
+
     const body = {
       email: this.state.email,
       password: this.state.password,
-      name: this.state.name,
-      avater_url: this.state.avater_url
+      firstName: this.state.firstName,
+      LastName: this.state.LastName,
+      jobrole: this.state.jobrole,
+      department: this.state.department,
+      gender: this.state.gender,
+      address: this.state.address
     };
     axios
-      .post("http://127.0.0.1:3000/api/article", {
-        body,
-        headers
+      .post("http://localhost:8000/api/user/signup", {
+        body
+        //headers
       })
       .then(response => {
         console.log(response);
@@ -55,23 +57,11 @@ class Register extends Component {
             <form className="form" onSubmit={this.onRegisterSubmit}>
               <div className="form-group">
                 <input
-                  type="text"
-                  placeholder="Name"
-                  name="name"
-                  onChange={this.onFildChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
                   type="email"
                   placeholder="Email Address"
                   name="email"
                   onChange={this.onFildChange}
                 />
-                <small className="form-text">
-                  This site uses Gravatar so if you want a profile image, use a
-                  Gravatar email
-                </small>
               </div>
               <div className="form-group">
                 <input
@@ -81,12 +71,74 @@ class Register extends Component {
                   onChange={this.onFildChange}
                 />
               </div>
-              <div className="form-group">
+
+              <div>
+                <label htmlFor="first Name">First Name</label>
                 <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  name="password2"
+                  type="text"
+                  value={this.state.firstName}
                   onChange={this.onFildChange}
+                  className="form-control"
+                  name="firstName"
+                  placeholder="Enter FirstName"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="LastName">Last Name</label>
+                <input
+                  type="text"
+                  value={this.state.LastName}
+                  onChange={this.onFildChange}
+                  className="form-control"
+                  name="LastName"
+                  placeholder="Enter LastName"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="gender">Gender</label>
+                <input
+                  type="text"
+                  value={this.state.gender}
+                  onChange={this.onFildChange}
+                  className="form-control"
+                  name="gender"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="job Role">Job Role</label>
+                <input
+                  type="text"
+                  value={this.state.jobrole}
+                  onChange={this.onFildChange}
+                  className="form-control"
+                  name="jobrole"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="Department">Department</label>
+                <input
+                  type="text"
+                  value={this.state.department}
+                  onChange={this.onFildChange}
+                  className="form-control"
+                  name="department"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="Address">Address</label>
+                <input
+                  type="text"
+                  value={this.state.address}
+                  onChange={this.onFildChange}
+                  className="form-control"
+                  name="address"
+                  placeholder="Home Address"
+                  required
                 />
               </div>
               <input

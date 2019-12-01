@@ -1,6 +1,7 @@
 /* Bordered form */
 form {
-  border: 3px solid #f1f1f1;
+  border: 3px solid #e7dbdb;
+  padding: 3px;
 }
 
 /* Full-width inputs */
@@ -60,12 +61,6 @@ span.psw {
   padding-top: 16px;
 }
 
-.container {
-  width: 660px;
-  position: relative;
-  margin: 0 auto;
-}
-
 .signup-content {
   background: #fff;
   border-radius: 10px;
@@ -73,7 +68,13 @@ span.psw {
   -webkit-border-radius: 10px;
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
-  padding: 50px 85px;
+  padding: 0px 70px;
+}
+
+.container {
+  width: 660px;
+  position: relative;
+  margin: 0 auto;
 }
 
 /* Change styles for span and cancel button on extra small screens */

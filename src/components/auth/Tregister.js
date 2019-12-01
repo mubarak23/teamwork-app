@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./register.css";
+
 //import "../../img/"
 class Tregister extends Component {
+    
   render() {
     return (
       <div className="main">
