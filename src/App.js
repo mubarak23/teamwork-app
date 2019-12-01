@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 //mport Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
-import Register from "./components/auth/Tregister";
+import Register from "./components/auth/Register";
 import Home from "./components/layout/Home";
 import { Route } from "react-router-dom";
 import "./App.css";

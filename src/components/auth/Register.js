@@ -48,52 +48,58 @@ class Register extends Component {
   render() {
     return (
       <Fragment>
-        <h1 className="large text-primary">Sign Up</h1>
-        <p className="lead">
-          <i className="fas fa-user" /> Create Your Account
-        </p>
-        <form className="form" onSubmit={this.onRegisterSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={this.onFildChange}
-            />
+        <div className="container">
+          <h1 className=" text-primary">Sign Up</h1>
+          <p className="lead">Create Your Account</p>
+          <div className="signup-content">
+            <form className="form" onSubmit={this.onRegisterSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  onChange={this.onFildChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  name="email"
+                  onChange={this.onFildChange}
+                />
+                <small className="form-text">
+                  This site uses Gravatar so if you want a profile image, use a
+                  Gravatar email
+                </small>
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={this.onFildChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  name="password2"
+                  onChange={this.onFildChange}
+                />
+              </div>
+              <input
+                type="submit"
+                className="btn btn-primary"
+                value="Register"
+              />
+            </form>
           </div>
-          <div className="form-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              onChange={this.onFildChange}
-            />
-            <small className="form-text">
-              This site uses Gravatar so if you want a profile image, use a
-              Gravatar email
-            </small>
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={this.onFildChange}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              name="password2"
-              onChange={this.onFildChange()}
-            />
-          </div>
-          <input type="submit" className="btn btn-primary" value="Register" />
-        </form>
-        <p className="my-1">
-          Already have an account? <a href="/login">Sign In</a>
-        </p>
+          <p className="my-1">
+            Already have an account? <a href="/login">Sign In</a>
+          </p>
+        </div>
       </Fragment>
     );
   }
