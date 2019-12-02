@@ -1,45 +1,84 @@
-import React, { Component } from 'react';
-import './style.css'
+import React, { Component } from "react";
+import axios from "axios";
+import "./style.css";
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      ErrorLogin: ""
+    };
+    this.onFieldChange = this.onFieldChange.bind(this);
+    this.onSubmitLogin = this.onSubmitLogin.bind(this);
+  }
 
-    render() {
-        return (
-          <div>
-            <form>
-                <div className="imgcontainer">
-                   
-                </div>
-                <div className="container">
-                    <label for="email">
-                        <b>Email</b>
-                    </label>
-                    <input type="text"
-                    required
-                    placeholder="Enter Your Email" name="email" />
-                
-                    <label for="password">
-                        <b>Password</b>
-                    </label>
-                    <input type="password" 
-                       placeholder="Enter Your Password"
-                       required 
-                    />
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" />
-                    Remember Me
-                </label>
-                </div>
-                <div className="container">
-                    <button type="button" className="cancelbtn">Cancel</button>
-                </div>
-                <span className="rpw">
-                    <a href="#forgotpassword">Forgot Password</a>
-                </span>  
-            </form>  
-          </div>      
-        );
-    }
+  onFieldChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+  onSubmitLogin(event) {
+    event.preventDefault();
+    const body = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    axios
+      .post("http://localhost:8000/api/user/signup", {
+        body
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  render() {
+    return (
+      <div>
+        <form className="form-group" onSubmit={this.onSubmitLogin}>
+          <div className="imgcontainer"></div>
+          <div className="container">
+            <label for="email">
+              <b>Email</b>
+            </label>
+            <input
+              type="text"
+              required
+              onChange={this.onFieldChange}
+              placeholder="Enter Your Email"
+              name="email"
+            />
+
+            <label for="password">
+              <b>Password</b>
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Your Password"
+              required
+            />
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" />
+              Remember Me
+            </label>
+          </div>
+          <div className="container">
+            <button type="button" className="cancelbtn">
+              Cancel
+            </button>
+          </div>
+          <span className="rpw">
+            <a href="#forgotpassword">Forgot Password</a>
+          </span>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default Login;   
+export default Login;
