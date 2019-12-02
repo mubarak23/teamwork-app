@@ -24,9 +24,15 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
     axios
       .post("http://localhost:8000/api/user/signup", {
-        body
+        body,
+        config
       })
       .then(response => {
         console.log(response);
