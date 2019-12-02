@@ -37,10 +37,15 @@ class Register extends Component {
       gender: this.state.gender,
       address: this.state.address
     };
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
     axios
       .post("http://localhost:8000/api/user/signup", {
-        body
-        //headers
+        body,
+        config
       })
       .then(response => {
         console.log(response);

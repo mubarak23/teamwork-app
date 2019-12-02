@@ -4,8 +4,11 @@ import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Home from "./components/layout/Home";
+import CreatePost from "./components/post/CreatePost";
+import Dashboard from "./components/dashboard/Dashboard";
 import { Route } from "react-router-dom";
 import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   //return console.log("Test");
@@ -16,6 +19,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/createpost" component={CreatePost} />
       </Fragment>
     </div>
   );

@@ -7,7 +7,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      ErrorLogin: ""
+      errorLogin: ""
     };
     this.onFieldChange = this.onFieldChange.bind(this);
     this.onSubmitLogin = this.onSubmitLogin.bind(this);
@@ -24,15 +24,29 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
     axios
       .post("http://localhost:8000/api/user/signup", {
-        body
+        body,
+        config
       })
       .then(response => {
         console.log(response);
+        if (!response.token) {
+          this.setState({
+            errorLogin: "Unable to Login at this time"
+          });
+        }
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          errorLogin: error
+        });
       });
   }
   render() {
@@ -76,6 +90,7 @@ class Login extends Component {
             <a href="#forgotpassword">Forgot Password</a>
           </span>
         </form>
+        <div className="danger">{this.state.errorLogin}</div>
       </div>
     );
   }
