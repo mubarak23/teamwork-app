@@ -6,6 +6,7 @@ import Register from "./components/auth/Register";
 import Home from "./components/layout/Home";
 import { Route } from "react-router-dom";
 import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   //return console.log("Test");
