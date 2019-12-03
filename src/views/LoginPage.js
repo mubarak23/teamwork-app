@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../store/actions/authActions";
 import { connect } from "react-redux";
+import Notification from "../components/Notification";
 import "../styles/forms.css";
 
 class LoginPage extends Component {
@@ -33,7 +34,11 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div className="container login-container">
+      <div className="container ">
+        <Notification
+          isVisible={this.state.isVisible}
+          notification={this.props.notification}
+        />
         <div className="form">
           <h4 className="text-center">Login</h4>
           <form onSubmit={this.onLoginSubmit}>
@@ -56,7 +61,7 @@ class LoginPage extends Component {
                 className="form-input"
                 name="password"
                 value={this.state.password}
-                onChange={this.handleTextChange}
+                onChange={this.onFieldChange}
               />
             </div>
             <div className="form-group">
@@ -83,6 +88,7 @@ class LoginPage extends Component {
 
 const mapStatetoProps = state => {
   return {
+    notification: state.auth.notification,
     auth: state.auth.auth
   };
 };
@@ -93,4 +99,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default LoginPage;
+export default connect(mapStatetoProps, mapDispatchToProps)(LoginPage);

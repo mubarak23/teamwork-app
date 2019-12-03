@@ -61,16 +61,20 @@ class Register extends Component {
           <div className="signup-content">
             <form className="form" onSubmit={this.onRegisterSubmit}>
               <div className="form-group">
+                <label htmlFor="first Name">Email Address</label>
                 <input
-                  type="email"
+                  type="text"
+                  className="form-input"
                   placeholder="Email Address"
                   name="email"
                   onChange={this.onFildChange}
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="first Name">Password</label>
                 <input
                   type="password"
+                  className="form-input"
                   placeholder="Password"
                   name="password"
                   onChange={this.onFildChange}
@@ -83,7 +87,7 @@ class Register extends Component {
                   type="text"
                   value={this.state.firstName}
                   onChange={this.onFildChange}
-                  className="form-control"
+                  className="form-input"
                   name="firstName"
                   placeholder="Enter FirstName"
                   required
