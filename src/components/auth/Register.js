@@ -14,7 +14,7 @@ class Register extends Component {
       address: "",
       gender: "",
       department: "",
-      jobrole: ""
+      jobRole: ""
     };
     this.onFildChange = this.onFildChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -26,26 +26,22 @@ class Register extends Component {
   }
   onRegisterSubmit(e) {
     e.preventDefault();
-
     const body = {
       email: this.state.email,
       password: this.state.password,
       firstName: this.state.firstName,
       LastName: this.state.LastName,
-      jobrole: this.state.jobrole,
+      jobRole: this.state.jobRole,
       department: this.state.department,
       gender: this.state.gender,
       address: this.state.address
     };
-    const config = {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
     axios
       .post("http://localhost:8000/api/user/signup", {
         body,
-        config
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
       })
       .then(response => {
         console.log(response);
@@ -120,7 +116,7 @@ class Register extends Component {
                 <label htmlFor="job Role">Job Role</label>
                 <input
                   type="text"
-                  value={this.state.jobrole}
+                  value={this.state.jobRole}
                   onChange={this.onFildChange}
                   className="form-control"
                   name="jobrole"
