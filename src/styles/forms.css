@@ -1,0 +1,112 @@
+.form {
+    margin: 0 auto;
+    max-width: 500px;
+    border: 1px solid var(--lightest-gray);;
+    border-radius: 8px;
+    padding: 30px;
+    background: white;
+}
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    font-size: 14px;
+    border: 1px solid var(--lightest-gray);;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 200ms ease;
+    color: var(--gray);
+    outline: none;
+}
+.form-input::placeholder {
+    color: var(--lighter-gray);
+}
+.form-input:hover {
+    border-color: var(--blue);
+}
+.form-input:focus {
+    border-color: var(--blue);
+    color: var(--gray);
+}
+
+.form-group {
+    margin-top: 24px;
+}
+.form-group p {
+    margin-bottom: 0.5em;
+}
+
+.btn {
+    padding: 9px 20px 10px;
+    font-family: FranklinGothicBook;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn.btn-primary{
+    border: 0;
+    border-radius: 6px;
+    color: white;
+    background-color: var(--blue);
+}
+
+.login-container{
+    margin-top: 125px;
+}
+
+textarea.form-input{
+    /* font-size: 16px; */
+    font-family: FranklinGothicBook;
+    margin: 10px auto;
+    width: 100%;
+    resize: vertical;
+}
+
+@media screen and (max-width:768px){
+    .form {
+        max-width: 400px;
+    }
+    .form-input {
+        padding: 15px 20px;
+        font-size: 12px;
+        outline: none;
+    }
+    .btn {
+        padding: 9px 20px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:767px){
+    .form .btn.btn-primary{
+        margin-top: 30px;
+        width: 100%;
+    }
+    .signup-container .form-group:first-of-type {
+        margin-top: 24px;
+    }
+    .signup-container .form-group {
+        margin-top: 0px;
+    }
+    .signup-container .form-input {
+        margin-bottom: 24px;
+    }
+}
+
+
+@media screen and (max-width:575px){
+    .form {
+        max-width: 300px;
+    }
+    .btn {
+        font-size: 10px;
+        padding: 9px 10px 10px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .form {
+        max-width: 200px;
+    }
+}
+  

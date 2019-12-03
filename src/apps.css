@@ -1,0 +1,293 @@
+:root {
+  --blue: #5b78c7;
+  --fsdh-light-blue: #009ade;
+  --fsdh-lighter-blue: #acd8f2;
+  --fsdh-burgundy: #a12538;
+  --gray: #555;
+  --lighter-gray: rgb(180, 180, 180);
+  --lightest-gray: rgb(235, 235, 235);
+}
+@font-face {
+  font-family: FranklinGothicMedium;
+  src: url(./font/FranklinGothic-Medium.ttf);
+}
+@font-face {
+  font-family: FranklinGothicBook;
+  src: url(./font/FranklinGothic-Book.TTF);
+}
+@font-face {
+  font-family: FranklinGothicDemi;
+  src: url(./font/FranklinGothic-Demi.TTF);
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 54px;
+}
+
+h3 {
+  font-size: 48px;
+}
+
+h4 {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+h6 {
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: FranklinGothicDemi;
+  line-height: 1.4;
+}
+h1.bold,
+h2.bold,
+h3.bold,
+h4.bold,
+h5.bold,
+h6.bold {
+  font-family: FranklinGothicMedium;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+p.x-l-4 {
+  font-size: 42px;
+}
+p.x-l-3 {
+  font-size: 36px;
+}
+p.x-l-2 {
+  font-size: 30px;
+}
+p.x-l {
+  font-size: 24px;
+}
+p.large {
+  font-size: 18px;
+}
+p.med {
+  font-size: 16px;
+}
+p.smal {
+  font-size: 14px;
+}
+p.x-s-4 {
+  font-size: 7px;
+}
+p.x-s-3 {
+  font-size: 9px;
+}
+p.x-s-2 {
+  font-size: 10px;
+}
+p.x-s {
+  font-size: 12px;
+}
+p.bold {
+  font-family: FranklinGothicDemi;
+  line-height: 1.2;
+}
+p.block-heading {
+  font-family: FranklinGothicDemi;
+  line-height: 1.2;
+}
+span,
+p,
+a {
+  font-family: FranklinGothicBook;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-grey {
+  color: var(--lighter-gray);
+}
+
+@media screen and (max-width: 575px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 44px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  h1.bold,
+  h2.bold,
+  h3.bold,
+  h4.bold,
+  h5.bold,
+  h6.bold {
+    font-family: FranklinGothicMedium;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  p.x-l-4 {
+    font-size: 32px;
+  }
+  p.x-l-3 {
+    font-size: 26px;
+  }
+  p.x-l-2 {
+    font-size: 20px;
+  }
+  p.x-l,
+  p.large {
+    font-size: 14px;
+  }
+  p.med {
+    font-size: 12px;
+  }
+  p.x-s-3,
+  p.x-s-4 {
+    font-size: 9px;
+  }
+  p.smal,
+  p.x-s,
+  p.x-s-2 {
+    font-size: 10px;
+  }
+  p.bold {
+    line-height: 1.2;
+  }
+  p.block-heading {
+    line-height: 1.2;
+  }
+  span,
+  p,
+  a {
+    line-height: 1.2;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 44px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+
+  h1.bold,
+  h2.bold,
+  h3.bold,
+  h4.bold,
+  h5.bold,
+  h6.bold {
+    font-family: FranklinGothicMedium;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  p.x-l-4 {
+    font-size: 32px;
+  }
+  p.x-l-3 {
+    font-size: 26px;
+  }
+  p.x-l-2 {
+    font-size: 20px;
+  }
+  p.x-l {
+    font-size: 14px;
+  }
+  p.large {
+    font-size: 13px;
+  }
+  p.med {
+    font-size: 10px;
+  }
+  p.smal,
+  p.x-s {
+    font-size: 9px;
+  }
+  p.x-s-4,
+  p.x-s-3 {
+    font-size: 7px;
+  }
+  p.x-s-2 {
+    font-size: 8px;
+  }
+  p.bold {
+    line-height: 1.2;
+  }
+  p.block-heading {
+    line-height: 1.2;
+  }
+  span,
+  p,
+  a {
+    line-height: 1.2;
+    font-size: 10px;
+  }
+}
+
+.notification {
+  width: auto;
+  border-radius: 6px;
+  padding: 10px;
+  position: fixed;
+  top: 10%;
+  right: 44vw;
+  color: white;
+}
+
+.notification.notification-success {
+  background-color: seagreen;
+}
+.notification.notification-error {
+  background-color: crimson;
+}
