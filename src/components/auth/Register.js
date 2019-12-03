@@ -26,6 +26,7 @@ class Register extends Component {
   }
   onRegisterSubmit(e) {
     e.preventDefault();
+    return console.log(this.state);
     const body = {
       email: this.state.email,
       password: this.state.password,
@@ -119,7 +120,7 @@ class Register extends Component {
                   value={this.state.jobRole}
                   onChange={this.onFildChange}
                   className="form-control"
-                  name="jobrole"
+                  name="jobRole"
                   required
                 />
               </div>

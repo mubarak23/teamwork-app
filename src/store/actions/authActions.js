@@ -14,6 +14,7 @@ export const login = data => {
         response
           .json()
           .then(res => {
+            //return console.log(res);
             if (res.status === "error") {
               dispatch({ type: "LOGIN_FAILED", data: res });
             } else {

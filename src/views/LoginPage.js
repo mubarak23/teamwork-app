@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { login } from "../store/actions/authActions";
 import { connect } from "react-redux";
 import Notification from "../components/Notification";
@@ -33,6 +33,10 @@ class LoginPage extends Component {
   };
 
   render() {
+    const { auth } = this.props;
+    if (auth.userId) {
+      return <Redirect to="/dashboard/" />;
+    }
     return (
       <div className="container ">
         <Notification

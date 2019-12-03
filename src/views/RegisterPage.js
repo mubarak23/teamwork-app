@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { signup } from "../store/actions/authActions";
 import { connect } from "react-redux";
-import "./style.css";
+import Notification from "../components/Notification";
+import "../styles/forms.css";
 
-class Register extends Component {
+class RegisterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,7 @@ class Register extends Component {
       gender: "",
       department: "",
       jobRole: "",
-      isVisible: ""
+      authError: ""
     };
     this.onFildChange = this.onFildChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -39,6 +40,7 @@ class Register extends Component {
       gender: this.state.gender,
       address: this.state.address
     };
+    //return console.log(this.state);
     axios
       .post("http://localhost:8000/api/user/signup", {
         body,
@@ -54,7 +56,8 @@ class Register extends Component {
 
   onRegisterSubmits = event => {
     event.preventDefault();
-    this.props.signup(this.state);
+    console.log(this.state);
+    this.props.signUp(this.state);
     this.setState({
       isVisible: !this.state.isVisible
     });
@@ -64,11 +67,19 @@ class Register extends Component {
       });
     }, 4000);
   };
-
   render() {
+    const { authError, auth } = this.props;
+
+    if (auth.userId) {
+      return <Redirect to="/dashboard/" />;
+    }
     return (
       <Fragment>
         <div className="container">
+          <Notification
+            isVisible={this.state.isVisible}
+            notification={this.props.notification}
+          />
           <h1 className=" text-primary">Sign Up</h1>
           <p className="lead">Create Your Account</p>
           <div className="signup-content">
@@ -136,7 +147,7 @@ class Register extends Component {
                   value={this.state.jobRole}
                   onChange={this.onFildChange}
                   className="form-control"
-                  name="jobrole"
+                  name="jobRole"
                   required
                 />
               </div>
@@ -188,7 +199,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    signUp: creds => dispatch(signup(creds))
+    signUp: data => dispatch(signup(data))
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
