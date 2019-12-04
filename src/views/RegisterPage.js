@@ -13,7 +13,7 @@ class RegisterPage extends Component {
       email: "",
       password: "",
       firstName: "",
-      LastName: "",
+      lastName: "",
       address: "",
       gender: "",
       department: "",
@@ -34,7 +34,7 @@ class RegisterPage extends Component {
       email: this.state.email,
       password: this.state.password,
       firstName: this.state.firstName,
-      LastName: this.state.LastName,
+      lastName: this.state.lastName,
       jobRole: this.state.jobRole,
       department: this.state.department,
       gender: this.state.gender,
@@ -118,14 +118,14 @@ class RegisterPage extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="LastName">Last Name</label>
+                <label htmlFor="first Name">Last Name</label>
                 <input
                   type="text"
-                  value={this.state.LastName}
+                  value={this.state.lastName}
                   onChange={this.onFildChange}
-                  className="form-control"
-                  name="LastName"
-                  placeholder="Enter LastName"
+                  className="form-input"
+                  name="lastName"
+                  placeholder="Enter Last Name"
                   required
                 />
               </div>
