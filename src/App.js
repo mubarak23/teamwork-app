@@ -20,6 +20,7 @@ function App() {
       <Navbar />
       <Fragment>
         <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route path="/register" component={mainRegister} />
         <Route path="/login" component={mainLogin} />
         <Route path="/dashboard" component={Dashboard} />

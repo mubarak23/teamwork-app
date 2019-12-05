@@ -24,6 +24,26 @@ const DashNav = () => {
               <span>My feed</span>
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink
+              to="/dashboard/post-article"
+              className="nav-link"
+              activeClassName="activeRoute"
+            >
+              <FontAwesomeIcon icon={faStickyNote} size="2x" />
+              <span>Post an article</span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/dashboard/post-gif"
+              className="nav-link"
+              activeClassName="activeRoute"
+            >
+              <FontAwesomeIcon icon={faImage} size="2x" />
+              <span>Post a gif</span>
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
