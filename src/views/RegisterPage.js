@@ -1,20 +1,24 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
-import "./style.css";
+import { withRouter, Redirect } from "react-router-dom";
+import { signup } from "../store/actions/authActions";
+import { connect } from "react-redux";
+import Notification from "../components/Notification";
+import "../styles/forms.css";
 
-class Register extends Component {
+class RegisterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
       firstName: "",
-      LastName: "",
+      lastName: "",
       address: "",
       gender: "",
       department: "",
-      jobRole: ""
+      jobRole: "",
+      authError: ""
     };
     this.onFildChange = this.onFildChange.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
@@ -26,17 +30,17 @@ class Register extends Component {
   }
   onRegisterSubmit(e) {
     e.preventDefault();
-    return console.log(this.state);
     const body = {
       email: this.state.email,
       password: this.state.password,
       firstName: this.state.firstName,
-      LastName: this.state.LastName,
+      lastName: this.state.lastName,
       jobRole: this.state.jobRole,
       department: this.state.department,
       gender: this.state.gender,
       address: this.state.address
     };
+    //return console.log(this.state);
     axios
       .post("http://localhost:8000/api/user/signup", {
         body,
@@ -49,14 +53,37 @@ class Register extends Component {
       })
       .catch(error => console.log(error));
   }
+
+  onRegisterSubmits = event => {
+    event.preventDefault();
+    console.log(this.state);
+    this.props.signUp(this.state);
+    this.setState({
+      isVisible: !this.state.isVisible
+    });
+    setTimeout(() => {
+      this.setState({
+        isVisible: !this.state.isVisible
+      });
+    }, 4000);
+  };
   render() {
+    const { authError, auth } = this.props;
+
+    if (auth.userId) {
+      return <Redirect to="/dashboard/" />;
+    }
     return (
       <Fragment>
         <div className="container">
+          <Notification
+            isVisible={this.state.isVisible}
+            notification={this.props.notification}
+          />
           <h1 className=" text-primary">Sign Up</h1>
           <p className="lead">Create Your Account</p>
           <div className="signup-content">
-            <form className="form" onSubmit={this.onRegisterSubmit}>
+            <form className="form" onSubmit={this.onRegisterSubmits}>
               <div className="form-group">
                 <label htmlFor="first Name">Email Address</label>
                 <input
@@ -91,14 +118,14 @@ class Register extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="LastName">Last Name</label>
+                <label htmlFor="first Name">Last Name</label>
                 <input
                   type="text"
-                  value={this.state.LastName}
+                  value={this.state.lastName}
                   onChange={this.onFildChange}
-                  className="form-control"
-                  name="LastName"
-                  placeholder="Enter LastName"
+                  className="form-input"
+                  name="lastName"
+                  placeholder="Enter Last Name"
                   required
                 />
               </div>
@@ -163,4 +190,16 @@ class Register extends Component {
   }
 }
 
-export default withRouter(Register);
+const mapStateToProps = state => {
+  return {
+    notification: state.auth.notification,
+    auth: state.auth.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: data => dispatch(signup(data))
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
