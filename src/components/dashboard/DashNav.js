@@ -26,7 +26,7 @@ const DashNav = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to="/dashboard/post-article"
+              to="/dashboard/create-article"
               className="nav-link"
               activeClassName="activeRoute"
             >

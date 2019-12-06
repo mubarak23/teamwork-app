@@ -20,7 +20,7 @@ const Dashboard = props => {
             <DahNav />
             <div className="dashboard-display">
               <Route exact path="/dashboard" component={Feeds} />
-              <Route path="/create-article" component={CreatePost} />
+              <Route path="/dashboard/create-article" component={CreatePost} />
               <Route path="/postgif" component={Postgif} />
             </div>
           </div>
