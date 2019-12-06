@@ -1,0 +1,51 @@
+.dashboard-tabbar {
+    border-radius: 8px;
+    background-color: white;
+    min-height: 50px;
+    margin-bottom: 20px;
+    /* padding: 20px; */
+    /* position:  ; */
+}
+.dashboard-display {
+    border-radius: 8px;
+    background-color: white;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.dashboard-tabbar .nav .nav-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+.dashboard-tabbar  .nav .nav-item{
+  padding: 15px;
+}
+
+.dashboard-tabbar  .nav .nav-item .nav-link{
+  color: var(--gray);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-tabbar  .nav .nav-item .nav-link.activeRoute{
+    color: var(--blue);
+}
+  
+.dashboard-tabbar  .nav .nav-item .nav-link:hover{
+    color: var(--blue);
+}
+
+.dashboard-tabbar  .nav .nav-item .nav-link span{
+    margin-left: 15px;
+}
+
+@media screen and (max-width:768px){
+    .dashboard-tabbar  .nav .nav-item .nav-link span{
+        display: none;
+    }    
+    .row.dash-row{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

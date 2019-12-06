@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import DahNav from "../components/dashboard/DashNav";
+import "../styles/dashboard.css";
 import CreatePost from "./PostArticle";
 import Feeds from "./FeedPage";
 import Postgif from "./PostGif";
@@ -18,7 +20,7 @@ const Dashboard = props => {
             <DahNav />
             <div className="dashboard-display">
               <Route exact path="/dashboard" component={Feeds} />
-              <Route path="/create-article" component={CreatePost} />
+              <Route path="/dashboard/create-article" component={CreatePost} />
               <Route path="/postgif" component={Postgif} />
             </div>
           </div>
@@ -28,4 +30,10 @@ const Dashboard = props => {
   );
 };
 
-export default Dashboard;
+const mapStateToprops = state => {
+  return {
+    auth: state.auth.auth
+  };
+};
+
+export default connect(mapStateToprops)(Dashboard);
