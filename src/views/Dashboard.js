@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import DahNav from "../components/dashboard/DashNav";
+import "../styles/dashboard.css";
 import CreatePost from "./PostArticle";
 import Feeds from "./FeedPage";
 import Postgif from "./PostGif";
