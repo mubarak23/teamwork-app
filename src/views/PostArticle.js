@@ -42,6 +42,10 @@ class PostArticle extends Component {
     return (
       <div className="feed-container">
         <h4>Create a Post</h4>
+        <Notification
+          isVisible={this.state.isVisible}
+          notification={this.props.notification}
+        />
         <form onSubmit={this.onCreatePost}>
           <div className="form-group">
             <label>Title</label>
@@ -71,9 +75,9 @@ class PostArticle extends Component {
                 <button
                   type="submit"
                   className="btn btn-primary float-md-right"
-                  Create
-                  Post
-                ></button>
+                >
+                  Create Post
+                </button>
               </div>
             </div>
           </div>
@@ -85,7 +89,7 @@ class PostArticle extends Component {
 
 const mapStateToProps = state => {
   return {
-    //notification: this.state.article.notification,
+    notification: this.state.body.notification,
     auth: state.auth.auth
   };
 };

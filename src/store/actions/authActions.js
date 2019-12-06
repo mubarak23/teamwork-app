@@ -1,8 +1,8 @@
-const api = "http://localhost:8000/api/user";
-
+export const api = "http://localhost:8000/api/";
+const path = "user";
 export const login = data => {
   return (dispatch, getState) => {
-    const request = new Request(`${api}/login`, {
+    const request = new Request(`${api + path}/login`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
