@@ -8,7 +8,8 @@ import CreatePost from "./components/post/CreatePost";
 import Dashboard from "./components/dashboard/Dashboard";
 import mainLogin from "./views/LoginPage";
 import mainRegister from "./views/RegisterPage";
-import { Route } from "react-router-dom";
+import mainDashboard from "../src/views/Dashboard";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./apps.css";
@@ -17,15 +18,17 @@ function App() {
   //return console.log("Test");
   return (
     <div className="App">
-      <Navbar />
-      <Fragment>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route path="/register" component={mainRegister} />
-        <Route path="/login" component={mainLogin} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/createpost" component={CreatePost} />
-      </Fragment>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/register" component={mainRegister} />
+          <Route path="/login" component={mainLogin} />
+          <Route path="/dashboard" component={mainDashboard} />
+          <Route path="/createpost" component={CreatePost} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

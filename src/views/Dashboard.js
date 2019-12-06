@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import DahNav from "../components/dashboard/DashNav";
 import CreatePost from "./PostArticle";
 import Feeds from "./FeedPage";
@@ -28,4 +29,10 @@ const Dashboard = props => {
   );
 };
 
-export default Dashboard;
+const mapStateToprops = state => {
+  return {
+    auth: state.auth.auth
+  };
+};
+
+export default connect(mapStateToprops)(Dashboard);

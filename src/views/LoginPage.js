@@ -16,6 +16,7 @@ class LoginPage extends Component {
   }
   onLoginSubmit = event => {
     event.preventDefault();
+    console.log(this.state);
     this.props.login(this.state);
     this.setState({
       isVisible: !this.state.isVisible
