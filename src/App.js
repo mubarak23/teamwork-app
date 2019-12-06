@@ -6,10 +6,11 @@ import Register from "./components/auth/Register";
 import Home from "./components/layout/Home";
 import CreatePost from "./components/post/CreatePost";
 import Dashboard from "./components/dashboard/Dashboard";
-import mainLogin from "./views/LoginPage";
-import mainRegister from "./views/RegisterPage";
-import mainDashboard from "../src/views/Dashboard";
+import MainLogin from "./views/LoginPage";
+import MainRegister from "./views/RegisterPage";
+import MainDashboard from "../src/views/Dashboard";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { isAuthenticated } from "../src/store/actions/authActions";
 //import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./apps.css";
@@ -23,9 +24,14 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
-          <Route path="/register" component={mainRegister} />
-          <Route path="/login" component={mainLogin} />
-          <Route path="/dashboard" component={mainDashboard} />
+          <Route path="/register" component={MainRegister} />
+          <Route path="/login" component={MainLogin} />
+          <Route
+            path="/dashboard"
+            render={props =>
+              isAuthenticated() ? <MainDashboard /> : <MainLogin />
+            }
+          />
           <Route path="/createpost" component={CreatePost} />
         </Switch>
       </BrowserRouter>

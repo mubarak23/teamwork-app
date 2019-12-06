@@ -1,8 +1,8 @@
-const api = "http://localhost:8000/api/user";
-
+export const api = "http://localhost:8000/api/";
+const path = "user";
 export const login = data => {
   return (dispatch, getState) => {
-    const request = new Request(`${api}/login`, {
+    const request = new Request(`${api + path}/login`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
@@ -62,3 +62,14 @@ export const signup = credentials => {
       });
   };
 };
+
+export function isAuthenticated() {
+  // Checks if there is a saved token and it's still valid
+  const token = localStorage.getItem("userToken");
+
+  if (token) {
+    return token;
+  } else {
+    return false;
+  }
+}
