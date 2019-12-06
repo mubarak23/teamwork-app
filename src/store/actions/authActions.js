@@ -62,3 +62,14 @@ export const signup = credentials => {
       });
   };
 };
+
+export function isAuthenticated() {
+  // Checks if there is a saved token and it's still valid
+  const token = localStorage.getItem("userToken");
+
+  if (token) {
+    return token;
+  } else {
+    return false;
+  }
+}
