@@ -42,10 +42,7 @@ class PostArticle extends Component {
     return (
       <div className="feed-container">
         <h4>Create a Post</h4>
-        <Notification
-          isVisible={this.state.isVisible}
-          notification={this.props.notification}
-        />
+
         <form onSubmit={this.onCreatePost}>
           <div className="form-group">
             <label>Title</label>
@@ -89,7 +86,7 @@ class PostArticle extends Component {
 
 const mapStateToProps = state => {
   return {
-    notification: this.state.body.notification,
+    //notification: state.body,
     auth: state.auth.auth
   };
 };
