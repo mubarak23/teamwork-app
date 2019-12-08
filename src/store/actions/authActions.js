@@ -68,7 +68,7 @@ export function isAuthenticated() {
   const token = sessionStorage.getItem("userToken");
   console.log(token);
   if (token) {
-    return token;
+    return true;
   } else {
     return false;
   }
