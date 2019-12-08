@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import DahNav from "../components/dashboard/DashNav";
 import "../styles/dashboard.css";
@@ -8,10 +8,11 @@ import Feeds from "./FeedPage";
 import Postgif from "./PostGif";
 
 const Dashboard = props => {
-  const { auth } = props;
-  if (!auth.token) {
-    return <Redirect to="/login" />;
-  }
+  //const { auth } = props;
+  //if (!auth.token) {
+  // return <Redirect to="/login" />;
+  //}
+  //Redirect
   return (
     <div className="container">
       <div style={{ display: "", marginTop: "40px", marginBottom: "40px" }}>
@@ -36,4 +37,4 @@ const mapStateToprops = state => {
   };
 };
 
-export default connect(mapStateToprops)(Dashboard);
+export default Dashboard;
