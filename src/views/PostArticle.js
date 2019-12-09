@@ -10,7 +10,7 @@ class CreatePost extends Component {
     this.state = {
       title: "",
       body: "",
-      userId: "",
+      userId: sessionStorage.getItem('userId'),
       isVisible: false
     };
   }
