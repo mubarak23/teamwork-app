@@ -5,7 +5,7 @@ import DahNav from "../components/dashboard/DashNav";
 import "../styles/dashboard.css";
 import CreatePost from "./PostArticle";
 import Feeds from "./FeedPage";
-import Postgif from "./PostGif";
+import PostGif from "./PostGif";
 
 const Dashboard = props => {
   //const { auth } = props;
@@ -20,9 +20,9 @@ const Dashboard = props => {
           <div className="col-xs-12 col-sm-10">
             <DahNav />
             <div className="dashboard-display">
-              <Route exact path="/dashboard" component={Feeds} />
+              <Route path="/dashboard" component={Feeds} />
               <Route path="/dashboard/create-article" component={CreatePost} />
-              <Route path="/postgif" component={Postgif} />
+              <Route path="/postgif" component={PostGif} />
             </div>
           </div>
         </div>

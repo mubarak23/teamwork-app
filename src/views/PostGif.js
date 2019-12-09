@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Postgif extends Component {
+class PostGif extends Component {
 
     render() {
         return (
@@ -11,4 +11,4 @@ class Postgif extends Component {
     }
 }
 
-export default Postgif;
+export default PostGif;

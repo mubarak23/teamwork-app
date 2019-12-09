@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import { createArticle } from "../store/actions/articleAction";
 import Notification from "../components/Notification";
 
-class PostArticle extends Component {
+class CreatePost extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       body: "",
-      userId: "",
+      userId: sessionStorage.getItem('userId'),
       isVisible: false
     };
   }
@@ -35,10 +35,10 @@ class PostArticle extends Component {
   };
 
   render() {
-    const { auth } = this.props;
-    if (!auth.token) {
-      return <Redirect to="dashboard" />;
-    }
+    //const { auth } = this.props;
+    //if (!auth.token) {
+    //return <Redirect to="dashboard" />;
+    //}
     return (
       <div className="feed-container">
         <h4>Create a Post</h4>
@@ -69,12 +69,11 @@ class PostArticle extends Component {
           <div className="form-group">
             <div className="row">
               <div className="col-xs-12">
-                <button
+                <input
                   type="submit"
-                  className="btn btn-primary float-md-right"
-                >
-                  Create Post
-                </button>
+                  value="Create Post"
+                  className="btn btn-primary right"
+                />
               </div>
             </div>
           </div>
@@ -96,4 +95,4 @@ const mapDispatchToProps = dispatch => {
     createPost: data => dispatch(createArticle(data))
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(PostArticle);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);
