@@ -10,12 +10,13 @@ class CreatePost extends Component {
     this.state = {
       title: "",
       body: "",
-      userId: sessionStorage.getItem('userId'),
+      userId: sessionStorage.getItem("userId"),
       isVisible: false
     };
   }
   onCreatePost = event => {
     event.preventDefault();
+    console.log(this.state);
     this.props.createPost(this.state);
     this.setState({
       isVisible: !this.state.isVisible
