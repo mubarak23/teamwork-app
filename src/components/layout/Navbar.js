@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from "../Logout";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../../store/actions/authActions";
 import "./style.css";
@@ -22,6 +23,8 @@ const Navbar = () => {
       ) : (
         <Link to="/register">Register</Link>
       )}
+
+      {isAuthenticated() ? <Logout /> : null}
 
       <a href="#contact">contact</a>
     </div>
