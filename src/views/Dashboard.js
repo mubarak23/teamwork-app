@@ -18,7 +18,6 @@ const Dashboard = props => {
       <div style={{ display: "", marginTop: "40px", marginBottom: "40px" }}>
         <div className="row dash-row">
           <div className="col-xs-12 col-sm-10">
-            <DahNav />
             <div className="dashboard-display">
               <Route path="/dashboard" component={Feeds} />
               <Route path="/dashboard/create-article" component={CreatePost} />

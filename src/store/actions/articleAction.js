@@ -1,4 +1,4 @@
-import { api } from "./authActions";
+const api = "http://localhost:8000/api/";
 const path = "article";
 
 export const createArticle = data => {
@@ -7,7 +7,8 @@ export const createArticle = data => {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`
       })
     });
     fetch(request)

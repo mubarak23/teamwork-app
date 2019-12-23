@@ -18,8 +18,8 @@ export const login = data => {
             if (res.status === "error") {
               dispatch({ type: "LOGIN_FAILED", data: res });
             } else {
-              sessionStorage.setItem("userId", res.data.userId);
-              sessionStorage.setItem("userToken", res.data.token);
+              localStorage.setItem("userId", res.data.userId);
+              localStorage.setItem("userToken", res.data.token);
               dispatch({ type: "LOGIN_SUCCESS", data: res });
             }
           })
@@ -65,7 +65,7 @@ export const signup = credentials => {
 
 export function isAuthenticated() {
   // Checks if there is a saved token and it's still valid
-  const token = sessionStorage.getItem("userToken");
+  const token = localStorage.getItem("userToken");
   console.log(token);
   if (token) {
     return true;
