@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { getFeed } from '../store/actions/feedActions';
-import ArticlePostSmall from '../components/ArticlePostSmall';
-import { connect } from 'react-redux';
+import { getFeed } from "../store/actions/feedActions";
+import ArticlePostSmall from "../components/ArticlePostSmall";
+import GifPostSmall from "../components/GifPostSmall";
+import { connect } from "react-redux";
 
 class FeedPage extends Component {
   state = {};
@@ -17,33 +18,43 @@ class FeedPage extends Component {
     return (
       <div>
         <h3>My Feeds</h3>
-        {
-          posts.map((post) => {
-            if(!post.imageUrl){
-              return <ArticlePostSmall
+        {posts.map(post => {
+          if (!post.imageUrl) {
+            return (
+              <ArticlePostSmall
                 key={post.id}
                 id={post.id}
                 title={post.title}
-                article={post.article}
-                authorId={post.UserId}
-                />
-            }
-          })
-        }
+                article={post.body}
+                authorId={post.userId}
+              />
+            );
+          } else {
+            return (
+              <GifPostSmall
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                imageUrl={post.imageUrl}
+                authorId={post.userId}
+              />
+            );
+          }
+        })}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = state => {
   return {
-    posts: state.feed.posts,
-  }
-}
-const mapDispatchToProps = (dispatch) =>{
+    posts: state.feed.posts
+  };
+};
+const mapDispatchToProps = dispatch => {
   return {
     getFeed: () => dispatch(getFeed())
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedPage);
