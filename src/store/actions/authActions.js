@@ -66,10 +66,12 @@ export const signup = credentials => {
 export function isAuthenticated() {
   // Checks if there is a saved token and it's still valid
   const token = localStorage.getItem("userToken");
-  console.log(token);
+
   if (token) {
-    return true;
+    return token;
   } else {
     return false;
   }
 }
+
+export function logout() {}

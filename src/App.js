@@ -32,6 +32,7 @@ function App() {
               isAuthenticated() ? <MainDashboard /> : <MainLogin />
             }
           />
+
           <Route path="/createpost" component={CreatePost} />
         </Switch>
       </BrowserRouter>
