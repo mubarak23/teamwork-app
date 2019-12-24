@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getFeed } from '../store/actions/feedActions';
+import ArticlePostSmall from '../components/ArticlePostSmall';
 import { connect } from 'react-redux';
 
 class FeedPage extends Component {
@@ -15,7 +16,20 @@ class FeedPage extends Component {
     const { posts } = this.props;
     return (
       <div>
-        <h3>List of post and gif</h3>
+        <h3>My Feeds</h3>
+        {
+          posts.map((post) => {
+            if(!post.imageUrl){
+              return <ArticlePostSmall
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                article={post.article}
+                authorId={post.UserId}
+                />
+            }
+          })
+        }
       </div>
     );
   }
