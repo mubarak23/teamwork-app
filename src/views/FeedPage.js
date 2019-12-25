@@ -3,6 +3,7 @@ import { getFeed } from "../store/actions/feedActions";
 import ArticlePostSmall from "../components/ArticlePostSmall";
 import GifPostSmall from "../components/GifPostSmall";
 import { connect } from "react-redux";
+import "../styles/feed.css";
 
 class FeedPage extends Component {
   state = {};
@@ -15,6 +16,7 @@ class FeedPage extends Component {
   }
   render() {
     const { posts } = this.props;
+    //console.log(posts);
     return (
       <div>
         <h3>My Feeds</h3>
