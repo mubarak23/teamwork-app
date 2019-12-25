@@ -14,6 +14,7 @@ export const getFeed = () => {
     });
     fetch(request)
       .then(response => {
+        //console.log(response);
         response
           .json()
           .then(res => {

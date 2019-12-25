@@ -16,6 +16,7 @@ class FeedPage extends Component {
   }
   render() {
     const { posts } = this.props;
+    //console.log(posts);
     return (
       <div>
         <h3>My Feeds</h3>
