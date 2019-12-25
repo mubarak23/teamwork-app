@@ -3,6 +3,7 @@ import { getFeed } from "../store/actions/feedActions";
 import ArticlePostSmall from "../components/ArticlePostSmall";
 import GifPostSmall from "../components/GifPostSmall";
 import { connect } from "react-redux";
+import "../styles/feed.css";
 
 class FeedPage extends Component {
   state = {};

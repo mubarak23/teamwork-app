@@ -1,0 +1,87 @@
+.feed-container {
+    padding: 30px;
+}
+.post {
+    border: 1px solid var(--lightest-gray);
+    border-bottom: 0px;
+    padding: 15px;
+}
+
+.post:first-of-type {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.post:last-of-type {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.post:last-of-type {
+    border-bottom: 1px solid var(--lightest-gray);
+}
+
+.post .post-title {
+    text-decoration: none;
+    color: inherit;
+}
+.post-small .readmore-link{
+    color: teal;
+    font-size: 14px;
+}
+
+.post .post-author{
+    color: var(--lighter-gray);
+}
+
+.post .f-icon{
+    cursor: pointer;
+    color: var(--gray);
+}
+.post .f-icon:hover{
+    color: var(--blue);
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-tools {
+    padding-top: 5px;
+}
+
+.post textarea.form-input{
+    /* font-size: 16px; */
+    font-family: FranklinGothicBook;
+    margin: 10px auto;
+    width: 100%;
+    resize: vertical;
+}
+
+.post .ima {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 5px;
+}
+
+.post .ima .post-img {
+    width: inherit;
+    height: inherit;
+}
+
+.del-icon{
+    margin: 0 10px;
+}
+
+@media screen and (max-width:575px){
+    .post .ima {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .feed-container {
+        padding: 15px;
+    }
+    .post .ima {
+        height: 200px;
+    }
+}
