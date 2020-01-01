@@ -42,8 +42,71 @@ class PostGif extends Component {
     };
   };
   render() {
-    return <div>Post gif</div>;
+    const { auth } = this.props;
+    if (!auth.token) {
+      return <Redirect to="/dashboard" />;
+    }
+    return (
+      <div>
+        <div className="feed-container">
+          <Notification
+            isVisible={this.state.isVisible}
+            notification={this.props.notification}
+          />
+          <div className="">
+            <h5>Post a Gif</h5>
+            <form onSubmit={this.handleSubmit} encType="multipart/form-data">
+              <div className="form-group">
+                <p>Title:</p>
+                <input
+                  type="text"
+                  className="form-input"
+                  id="title"
+                  placeholder="Hello World..."
+                  value={this.state.title}
+                  onChange={this.handleTextChange}
+                  autoFocus
+                />
+              </div>
+              <div className="form-group">
+                <p>Image:</p>
+                <input
+                  id="imageFile"
+                  type="file"
+                  onChange={this.handleImageChange}
+                />
+              </div>
+              <div className="form-group">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <button
+                      type="submit"
+                      className="btn btn-primary float-md-right"
+                    >
+                      Post article
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
-export default PostGif;
+const mapStateToProps = state => {
+  return {
+    notification: state.gif.notification,
+    auth: state.auth.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createGif: data => dispatch(createGif(data))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostGif);
