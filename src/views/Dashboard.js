@@ -1,10 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
-import DahNav from "../components/dashboard/DashNav";
+//import DahNav from "../components/dashboard/DashNav";
 import "../styles/dashboard.css";
 import CreatePost from "./PostArticle";
-import Feeds from "./FeedPage";
+//import Feeds from "./FeedPage";
+import DemoFeed from "./DemoFeed";
 import PostGif from "./PostGif";
 
 const Dashboard = props => {
@@ -19,9 +20,9 @@ const Dashboard = props => {
         <div className="row dash-row">
           <div className="col-xs-12 col-sm-10">
             <div className="dashboard-display">
-              <Route path="/dashboard" component={Feeds} />
+              <Route path="/dashboard" component={DemoFeed} />
               <Route path="/dashboard/create-article" component={CreatePost} />
-              <Route path="/postgif" component={PostGif} />
+              <Route path="/dashboard/postgif" component={PostGif} />
             </div>
           </div>
         </div>
@@ -36,4 +37,4 @@ const mapStateToprops = state => {
   };
 };
 
-export default Dashboard;
+export default connect(mapStateToprops)(Dashboard);

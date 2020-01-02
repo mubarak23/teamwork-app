@@ -19,7 +19,7 @@ const Navbar = () => {
       )}
 
       {isAuthenticated() ? (
-        <Link to="/dashboard/post-gif">Post Gif</Link>
+        <Link to="/dashboard/postgif">Post Gif</Link>
       ) : (
         <Link to="/register">Register</Link>
       )}
