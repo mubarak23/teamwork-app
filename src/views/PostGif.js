@@ -49,10 +49,6 @@ class PostGif extends Component {
     return (
       <div>
         <div className="feed-container">
-          <Notification
-            isVisible={this.state.isVisible}
-            notification={this.props.notification}
-          />
           <div className="">
             <h5>Post a Gif</h5>
             <form onSubmit={this.handleSubmit} encType="multipart/form-data">
@@ -98,7 +94,6 @@ class PostGif extends Component {
 
 const mapStateToProps = state => {
   return {
-    notification: state.gif.notification,
     auth: state.auth.auth
   };
 };

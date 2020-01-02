@@ -20,7 +20,11 @@ const gifReducer = (state = initState, action) => {
       };
     case "CREATE_GIF_FAILED":
       return {
-        ...state
+        ...state,
+        notification: {
+          status: action.data.status,
+          message: action.data.data.message
+        }
       };
     case "GET_GIF_SUCESS":
       return {
