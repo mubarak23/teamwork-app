@@ -35,7 +35,7 @@ export const login = data => {
 
 export const signup = credentials => {
   return (dispatch, getState) => {
-    const request = new Request(`${api}/signup`, {
+    const request = new Request(`${api + path}/signup`, {
       method: "POST",
       body: JSON.stringify(credentials),
       headers: new Headers({
